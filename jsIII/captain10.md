@@ -1,4 +1,5 @@
 # 第十章 DOM
+
 ## 10.1 节点层次
 - 文档节点是每个文档的根节点；
 - 文档元素是文档的最外层元素， 文档中的其他所有元素都包含在文档元素中，每个文档只能有一个文档元素。
@@ -128,3 +129,39 @@
   `alert(element.childNodes.length); //1 `<br>
   `alert(element.firstChild.nodeValue); // "Hello world!Yippee!" `
 
+### 10.1.5 Comment类型
+- nodeType: 8
+- nodeName: '#comment'
+- nodeValue: 注释的内容
+
+### 10.1.6 Attr类型
+- nodeType: 2
+- nodeName: 特性的名称
+- nodeValue： 特性的值
+- 尽管是节点，但是特性不被认为是DOM文档树的一部分
+- getAttribute()、setAttribute()和 remveAttribute() 取得特性
+
+## 10.2 DOM操作技术
+### 10.2.1 动态脚本
+- 在Firefox、Safari、Chrome、Opera中<br>
+`var script = document.createElement("script");`<br>
+`script.type = "text/javascript";`<br> 
+`script.appendChild(document.createTextNode("function sayHi(){alert('hi');}"));`<br>
+`document.body.appendChild(script);`
+- 在IE中不能访问script标签的子节点，所以通过script的text属性代替
+`var script = document.createElement("script");`<br>
+`script.type = "text/javascript";`<br>
+`script.text = "function sayHi(){alert('hi');}";`<br>
+`document.body.appendChild(script);`
+### 10.2.2 动态样式
+- 同理，通过该元素的styleSheet.cssText代替
+`var style = document.createElement("style");`<br>
+`style.type = "text/css";`<br>
+`try{`<br>
+ `style.appendChild(document.createTextNode("body{background-color:red}"));`<br> 
+`} catch (ex){`<br>
+ `style.styleSheet.cssText = "body{background-color:red}";`<br>
+`}`<br>
+`var head = document.getElementsByTagName("head")[0];`<br>
+`head.appendChild(style);`
+### 10.2.3 操作表格
