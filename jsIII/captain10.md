@@ -139,7 +139,7 @@
 - nodeName: 特性的名称
 - nodeValue： 特性的值
 - 尽管是节点，但是特性不被认为是DOM文档树的一部分
-- getAttribute()、setAttribute()和 remveAttribute() 取得特性
+- getAttribute()、setAttribute()和 remveAttribute() 取得特性
 
 ## 10.2 DOM操作技术
 ### 10.2.1 动态脚本
