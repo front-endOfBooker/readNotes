@@ -2,7 +2,7 @@
 ## 10.1 节点层次
 - 文档节点是每个文档的根节点；
 - 文档元素是文档的最外层元素， 文档中的其他所有元素都包含在文档元素中，每个文档只能有一个文档元素。
-- 在HTML页面中，文档元素始终都是<html>元素。在XML中，没有预定义的元素，所以任何元素都有可能成为文档元素。
+- 在HTML页面中，文档元素始终都是\<html\>元素。在XML中，没有预定义的元素，所以任何元素都有可能成为文档元素。
 
 ### 10.1.1 Node类型
 - 每个节点都有一个nodeType属性，一共有12种(nodeType)
@@ -45,5 +45,32 @@
 - `document.constructor = f HTMLDocument {}`<br>document对象是HTMLDocument的一个实例，表示整个HTML页面
 - nodeType的值为9
 - nodeName的值为'#document'
-- 
-  
+- nodeValue, parentNode, ownerDocument的值为null
+#### 1 文档的子节点
+- document.documentElement: 始终指向页面的\<html\>元素
+- document.childNodes
+- document.body
+- document.head
+- document.doctype 取得对于\<!DOCTYPE\>的引用(浏览器的支持不一致，用处有限)
+#### 2 文档信息
+- document.title  包含文本标题
+- document.URL  包含页面的完整URL
+- document.domain  包含页面域名
+- document.referrer  包含链接到当前页面的URL，没有来源则返回空字符串
+#### 3 查找元素
+- getElementById()
+  - 严格匹配，包括大小写
+  - 不存在则返回null
+  - 存在多个相同的id则返回第一个
+- getElementsByTagName()
+  - 返回一个nodeList。在HTML中返回的是一个HTMLCollection对象，是一个动态的集合
+  - 访问方式：通过方括号访问(childNodes[0]) 或 通过item()方法访问(childNodes.item(0))
+  - length
+- getElementsByName()
+#### 4 特殊集合
+- document.anchors: 包含文档中所有带name特性的\<a\>元素
+- document.form: 等于document.getElementsByTagName('form')
+- document.images: 等于document.getElementsByTagName('img')
+- document.links: 包含文档中所有带href特性的\<a\>元素
+#### 5 文档写入
+- write()、writeln()、open()、close()
