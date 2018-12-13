@@ -115,16 +115,16 @@
 - nodeValue可以修改文本节点
 #### 1 创建文本节点
 - document.createTextNode()
-- normalize()
-  `var element = document.createElement("div"); 
-   element.className = "message"; 
-   var textNode = document.createTextNode("Hello world!"); 
-   element.appendChild(textNode); 
-   var anotherTextNode = document.createTextNode("Yippee!"); 
-   element.appendChild(anotherTextNode); 
-   document.body.appendChild(element); 
-   alert(element.childNodes.length); //2 
-   element.normalize(); 
-   alert(element.childNodes.length); //1 
+- normalize()<br>
+  `var element = document.createElement("div");<br> 
+   element.className = "message"; <br>
+   var textNode = document.createTextNode("Hello world!"); <br>
+   element.appendChild(textNode); <br>
+   var anotherTextNode = document.createTextNode("Yippee!"); <br>
+   element.appendChild(anotherTextNode); <br>
+   document.body.appendChild(element); <br>
+   alert(element.childNodes.length); //2 <br>
+   element.normalize(); <br>
+   alert(element.childNodes.length); //1 <br>
    alert(element.firstChild.nodeValue); // "Hello world!Yippee!" `
 
