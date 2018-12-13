@@ -76,7 +76,7 @@
 
 ## 8.4 screen 对象
 
-## history 对象
+## 8.5 history 对象
 - history对象保存着客户的历史记录
 - history.go(n) 接受两种参数，字符串或整数值，当历史记录中不包含字符串，那么这个方法什么也不做
 - history.length: 保存着历史记录的数量
