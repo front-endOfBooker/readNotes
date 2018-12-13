@@ -43,8 +43,8 @@
 
 ### 10.1.2 Document类型
 - `document.constructor = f HTMLDocument {}`<br>document对象是HTMLDocument的一个实例，表示整个HTML页面
-- nodeType的值为9
-- nodeName的值为'#document'
+- nodeType: 9
+- nodeName: '#document'
 - nodeValue, parentNode, ownerDocument的值为null
 #### 1 文档的子节点
 - document.documentElement: 始终指向页面的\<html\>元素
@@ -74,3 +74,57 @@
 - document.links: 包含文档中所有带href特性的\<a\>元素
 #### 5 文档写入
 - write()、writeln()、open()、close()
+
+### 10.1.3 Element类型
+- nodeType: 1
+- nodeName: 元素的标签名
+- nodeValue: null
+- 访问标签名可通过nodeName属性或tagName属性
+#### 1 HTML元素
+- 五个基本属性: id title lang dir className(calss是保留字，所以使用className)
+#### 2 取得属性
+- getAttribute()
+  - 访问class： .className 或 getAttribute('class')  --属性访问和方法访问
+  - 此方法中，括号内的特性(属性)的名称不区分大小写
+  - 也可以取得自定义属性，在H5中自定义特性(属性)应该加上data-前缀
+  - getAttribute('style')返回字符串；.style返回的是对象
+#### 3 设置特性
+- setAttribute()
+  - 2argument: 要设置的特性名， 要设置的特性值
+  - 如果特性已存在，则替换现有值
+  - 通过此方法可以操作HTML特性和自定义特性，通过此方法设置的特性名会被统一转换为小写形式
+- removeAttribute()
+#### 4 创建元素
+- document.createElement()
+  - 该方法在HTML中不区分大小写，在XML中区分
+  - 设置完成后需要通过<a href="#操作方法">操作方法</a>添加到文档树才能显示
+#### 5 元素子节点
+- elememt.childNodes
+
+### 10.1.4 Text类型
+- nodeType: 3
+- nodeName: '#text'
+- nodeValue: 节点所包含的文本
+- 操作文本节点的方法
+  - appendData(text)
+  - deleteData(offset, count): 从offset指定的位置开始删除count个字符
+  - insertData(offset, count)： 从offset指定的位置开始插入count个字符
+  - replaceData(offset, count, text)
+  - splitText(offset): 从 offset 指定的位置将当前文本节点分成两个文本节点
+  - substringData(offset, count)：提取从offset指定的位置开始到offset+count为止处的字符串
+- nodeValue可以修改文本节点
+#### 1 创建文本节点
+- document.createTextNode()
+- normalize()
+  `var element = document.createElement("div"); 
+   element.className = "message"; 
+   var textNode = document.createTextNode("Hello world!"); 
+   element.appendChild(textNode); 
+   var anotherTextNode = document.createTextNode("Yippee!"); 
+   element.appendChild(anotherTextNode); 
+   document.body.appendChild(element); 
+   alert(element.childNodes.length); //2 
+   element.normalize(); 
+   alert(element.childNodes.length); //1 
+   alert(element.firstChild.nodeValue); // "Hello world!Yippee!" `
+
