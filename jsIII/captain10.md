@@ -40,4 +40,10 @@
   - 复制后要通过<a href="#操作方法">操作方法</a>添加到文档树才能显示
 2. normalize()
 - 查找空文本节点删除，查找相邻文本节点合并
+
+### 10.1.2 Document类型
+- `document.constructor = f HTMLDocument {}`<br>document对象是HTMLDocument的一个实例，表示整个HTML页面
+- nodeType的值为9
+- nodeName的值为'#document'
+- 
   
