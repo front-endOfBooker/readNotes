@@ -65,7 +65,7 @@
 
 ### 8.2.1 位置操作
 - location.assign() 调用location.href/window.location也是调用这个方法
-- location.href/window.location\
+- location.href/window.location
 - location.replace(): 不会在历史记录中出现原来页面的记录，所以无法退回(后退处于禁用状态)
 - location.reload(): 
   - location.reload() 重新加载(可能从缓存中加载)
